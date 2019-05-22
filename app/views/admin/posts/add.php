@@ -8,7 +8,12 @@
 	<?php endif; ?>
 
 
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
+		<div>
+			<label>Selectionnez une image à charger:</label></br>
+			<input type="hidden" name="size" value="1000000">
+		    <input type="file" name="image" id="image">
+	    </div>
 	    <div>
 	        <label for="title">Titre de l'épisode</label><br />
 	        <input type="text" id="title" name="title" />

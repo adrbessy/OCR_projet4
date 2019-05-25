@@ -9,7 +9,7 @@ class PostManager extends Manager
         $page = ($page-1)*5;
         $db = $this->getDb();
         $posts = $db->query(
-            'SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr 
+            'SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr, image 
              FROM posts 
              ORDER BY id 
              DESC LIMIT ' . $page . ',5'
@@ -17,7 +17,17 @@ class PostManager extends Manager
         return $posts;
     }
 
-    public function getAllPosts()
+    public function getNumberOfEpisodes()
+    {
+        $db = $this->getDb();
+        $nbEpisodes = $db->query('
+            SELECT COUNT(*) AS nb_episodes 
+            FROM posts'
+            ,'app\Table\Post',true);
+        return $nbEpisodes;
+    }
+
+        public function getAllPosts()
     {
         $db = $this->getDb();
         $allPosts = $db->query(
@@ -27,16 +37,6 @@ class PostManager extends Manager
              DESC'
              ,'app\Table\Post');
         return $allPosts;
-    }
-
-    public function getNumberOfPages()
-    {
-        $db = $this->getDb();
-        $nbPages = $db->query('
-            SELECT COUNT(*) AS nb_billets 
-            FROM posts'
-            ,'app\Table\Post',true);
-        return $nbPages;
     }
 
     public function getPost($postId)

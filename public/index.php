@@ -4,8 +4,8 @@ define('ROOT', dirname(__DIR__));
 
 session_start();
 
-require ROOT .'/app/Autoloader.php';
-App\Autoloader::register();
+require ROOT .'/core/Autoloader.php';
+core\Autoloader::register();
 
 if(isset($_GET['action'])){
     $url = $_GET['action'];

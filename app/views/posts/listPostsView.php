@@ -1,16 +1,10 @@
 <main class="main pt-4">
     <div class="container">
-        <?php
-        $nb_billets = $numberOfPages->nb_billets/5+1;
-        $pagination = new \app\Table\Post; ?>
-
-        <?=$pagination::getPagination($nb_billets);?>
-
-
+        <?php $nb_pages = $numberOfEpisodes->nb_episodes/5+1; ?>
+        <?=$numberOfEpisodes->getPagination($nb_pages);?>
         <div class="row">
             <div class="col-md-6 col-sm-10 col-xs-10 mx-auto">
                 <?php foreach ($posts as $post): ?>
-                    <!-- <div class="news"> -->
                     <article class="card mb-4"> 
                         <header class="card-header">  
                             <div class="card-meta">
@@ -20,14 +14,13 @@
                                 <?= htmlspecialchars($post->title) ?>
                             </h4>
                         </header>
+                        <!-- <img class="card-img" src= '/img/" . <?=$post->image?> . "'  alt> -->
+                        <img class="card-img" src= "' . <?=ROOT?> . '/public/img/P1050461.JPG"  alt>
                         <?= $post->extract?>
                     </article> 
                 <?php endforeach; ?>
             </div>
         </div>
-
-        <div class="container" id="upper_space">
-        <?=$pagination::getPagination($nb_billets);?>
-        </div>
+        <?=$numberOfEpisodes->getPagination($nb_pages);?>
     </div>
 </main>

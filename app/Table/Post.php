@@ -10,7 +10,7 @@ class Post{
 		return $this->$key;
 	}
 
-	public static function getPagination($nb_billets){
+	public function getPagination($nb_billets){
 		$html = '<nav aria-label="Page navigation example">';
 		$html .= '<ul class="pagination">';
 		for ($i=1 ; $i<$nb_billets ; $i++)
@@ -31,13 +31,9 @@ class Post{
         return $html;
 	}
 
-	public function getUrl(){
-		return 'index.php?action=posts.post&id=' . $this->id;
-	}
-
 	public function getExtract(){
 		$html = '<div>' . substr($this->content,0, 250) . ' ...</br>';
-		$html .= '<a href = "' . $this->getUrl() . '">Voir la suite</a></div>';
+		$html .= '<a href = "index.php?action=posts.post&id=' . $this->id . '">Voir la suite</a></div>';
 		return $html;
 	}
 

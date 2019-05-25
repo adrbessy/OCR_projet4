@@ -15,8 +15,8 @@ class PostsController extends AppController{
 		}else{
 			$posts = $this->postManager->getPosts(1);
 		}
-	    $numberOfPages = $this->postManager->getNumberOfPages();
-	    $this->render('posts.listPostsView',compact('posts','numberOfPages'));
+	    $numberOfEpisodes = $this->postManager->getNumberOfEpisodes();
+	    $this->render('posts.listPostsView',compact('posts','numberOfEpisodes'));
 	}
 
 	public function post($error=false)

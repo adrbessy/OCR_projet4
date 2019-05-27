@@ -14,9 +14,7 @@
                                 <?= htmlspecialchars($post->title) ?>
                             </h4>
                         </header>
-                        <!-- <img class="card-img" src= '/img/" . <?=$post->image?> . "'  alt> -->
-                        <img class="card-img" src= "' . <?=ROOT?> . '/public/img/P1050461.JPG"  alt>
-                        <?= $post->extract?>
+                        <?= $post->getExtract()?>
                     </article> 
                 <?php endforeach; ?>
             </div>

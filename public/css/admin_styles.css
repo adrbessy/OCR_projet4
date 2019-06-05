@@ -10,6 +10,11 @@ body {
     letter-spacing: 1px;
     display: block;
 }
+@media (max-device-width: 769px){
+  body {
+      font-size: 2rem;
+  }
+}
 
 /******* HEADER ***************/
 header{

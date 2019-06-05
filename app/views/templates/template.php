@@ -18,7 +18,7 @@
                 <div class="container">
                     <button class="navbar-toggler order-2 order-md-1" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar1 navbar2" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button>                           
                     <div class="collapse navbar-collapse order-3 order-md-2" id="navbar1">
                         <ul class="navbar-nav mr-auto">
                               <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
@@ -28,8 +28,8 @@
                     <a class="navbar-brand mx-auto order-1 order-md-3" href="index.php">Jean Forterøche</a>
                     <div class="collapse navbar-collapse order-4 order-md-4" id="navbar2">
                         <ul class="navbar-nav ml-auto">
-                              <li class="nav-item dropdown active"><a class="nav-link" href="#">A propos</a></li>
-                              <li class="nav-item dropdown active"><a class="nav-link" href="#">Contact</a></li>
+                            <li class="nav-item dropdown active"><a class="nav-link" href="#">A propos</a></li>
+                            <li class="nav-item dropdown active"><a class="nav-link" href="#">Contact</a></li>
                         </ul>
                     </div>
                 </div>

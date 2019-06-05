@@ -14,6 +14,13 @@
                                 <?= htmlspecialchars($post->title) ?>
                             </h4>
                         </header>
+                        <!-- <script>
+                            console.log('img/" . <?php $post->image?> . "');
+                        </script>
+                        <?php var_dump($post->image)  ?>
+                        <img class="card-img" src= "img/P1050461.JPG"  alt="Trulli" width="500" height="333">
+                        <img class="card-img" src= "<?php echo "img/".$post->image ?>" alt="Trulli" width="500" height="333">
+                        <img class="card-img" src= "<?= ROOT ?>/public/img/P1050461.JPG"  alt="Trulli" width="500" height="333"> -->
                         <?= $post->getExtract()?>
                     </article> 
                 <?php endforeach; ?>

@@ -16,7 +16,7 @@
         <header>
             <nav class="navbar navbar-expand-md bg-white">
                 <div class="container">
-                    <button class="navbar-toggler order-2 order-md-1" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar1 navbar2" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="btn btn-primary navbar-toggler order-2 order-md-1" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar1 navbar2" aria-expanded="false">
                         <span class="navbar-toggler-icon"></span>
                     </button>                           
                     <div class="collapse navbar-collapse order-3 order-md-2" id="navbar1">

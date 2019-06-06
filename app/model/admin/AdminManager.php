@@ -24,9 +24,10 @@ class AdminManager extends Manager
         if(!empty($_POST)){
             if(!empty($_POST['title']) && !empty($_POST['content'])){
                 $msg = "";
-                if(isset($_FILES['image'])){
-                    $target = ROOT ."/public/img/".basename($_FILES['image']['name']);
-                    $add = $db->prepare(
+                if(isset($_FILES['image']) && in_array(strtolower(explode('.',$_FILES['image']['name'])[1]),['png','gif','jpg']) ){
+                    $target = ROOT ."/public/img/".$_FILES['image']['name'];
+                    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+                        $add = $db->prepare(
                         'INSERT INTO posts(title, content, creation_date, image) 
                          VALUES(?, ?, NOW(), ?)'
                         ,array(
@@ -34,12 +35,10 @@ class AdminManager extends Manager
                             $_POST['content'],
                             $_FILES['image']['name']
                             ));
-                    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
                         $msg = "l'image a bien été chargée !";
                     }else{
                         $msg = "il y a eu un problème dans le chargement du fichier image !";
                     }
-                    // var_dump($msg);
                 }else{
                     $add = $db->prepare(
                         'INSERT INTO posts(title, content, creation_date) 

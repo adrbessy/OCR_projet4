@@ -12,7 +12,7 @@
 		<div>
 			<label>Selectionnez une image à charger:</label></br>
 			<input type="hidden" name="size" value="1000000">
-		    <input type="file" name="image" id="image">
+		    <input type="file" name="image" id="image" accept="image/png, image/jpeg">
 	    </div>
 	    <div>
 	        <label for="title">Titre de l'épisode</label><br />

@@ -14,9 +14,9 @@
                                 <?= htmlspecialchars($post->title) ?>
                             </h4>
                         </header>
-                        <?php  if (!empty($post->image)){
-                            ?>                         <img class="card-img" src= "<?php echo "img/".$post->image ?>" alt="Trulli" width="500" height="333">
-                        <?php } ?>
+                        <?php if (!empty($post->image)){
+                            ?>  <img class="card-img" src= "<?php echo "img/".$post->image ?>" alt="Trulli" width="500" height="333">
+                        <?php  } ?>
                         <?= $post->getExtract()?>
                     </article> 
                 <?php endforeach; ?>

@@ -24,7 +24,7 @@ class AdminManager extends Manager
         if(!empty($_POST)){
             if(!empty($_POST['title']) && !empty($_POST['content'])){
                 $msg = "";
-                if(isset($_FILES['image']) && in_array(strtolower(explode('.',$_FILES['image']['name'])[1]),['png','gif','jpg']) ){
+                if(isset($_FILES['image'])  ){
                     $target = ROOT ."/public/img/".$_FILES['image']['name'];
                     if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
                         $add = $db->prepare(
@@ -60,14 +60,35 @@ class AdminManager extends Manager
     public function edit(){
         $db = $this->getDb();
         if(!empty($_POST)){
-            $update = $db->prepare(
-                'UPDATE posts SET title= :title, content= :content 
-                 WHERE id= :id'
-                 ,array(
-                        'title' => $_POST['title'],
-                        'content' => $_POST['content'],
-                        'id' => $_GET['id']
-                        ));
+            $msg = "";
+            if(isset($_FILES['image'])){
+                if($_FILES['image']['error']!==4){
+                    $target = ROOT ."/public/img/".$_FILES['image']['name'];
+                    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+                        $update = $db->prepare(
+                            'UPDATE posts SET title= :title, content= :content, image= :image 
+                             WHERE id= :id'
+                             ,array(
+                                    'title' => $_POST['title'],
+                                    'content' => $_POST['content'],
+                                    'id' => $_GET['id'],
+                                    'image' => $_FILES['image']['name']
+                                    ));
+                        $msg = "l'image a bien été chargée !";
+                    }else{
+                        $msg = "il y a eu un problème dans le chargement du fichier image !";
+                    }
+                }else{
+                    $update = $db->prepare(
+                        'UPDATE posts SET title= :title, content= :content 
+                         WHERE id= :id'
+                         ,array(
+                                'title' => $_POST['title'],
+                                'content' => $_POST['content'],
+                                'id' => $_GET['id']
+                                ));
+                }
+            }
             if($update){
                 header('Location: admin.php?confirmation=edited');
             }
